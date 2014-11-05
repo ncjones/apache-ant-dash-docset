@@ -5,7 +5,7 @@
 	<key>CFBundleIdentifier</key>
 	<string>ant</string>
 	<key>CFBundleName</key>
-	<string>Apache ANT</string>
+	<string>Apache Ant</string>
 	<key>DocSetPlatformFamily</key>
 	<string>apache-ant</string>
 	<key>isDashDocset</key>
