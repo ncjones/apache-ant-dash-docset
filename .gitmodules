@@ -1,0 +1,3 @@
+[submodule "apache-ant"]
+	path = apache-ant
+	url = https://github.com/apache/ant.git
