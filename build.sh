@@ -31,9 +31,18 @@ insert () {
   "
 }
 
-for file_name in `ls $DOCS_DIR/Tasks`; do
-  insert $(basename $file_name .html) Command Tasks/$file_name
-done
+insert_all () {
+  dir=$1
+  idx_type=$2
+  for file_name in `ls $dir`; do
+	  insert $(basename $file_name .html) \
+	         $idx_type \
+		 $(basename $dir)/$file_name
+  done
+}
+
+insert_all $DOCS_DIR/Tasks Command
+insert_all $DOCS_DIR/Types Type
 
 tar -cvzf apache-ant.tgz apache-ant.docset > /dev/null
 
