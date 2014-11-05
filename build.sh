@@ -35,3 +35,5 @@ for file_name in `ls $DOCS_DIR/Tasks`; do
   insert $(basename $file_name .html) Command Tasks/$file_name
 done
 
+tar -cvzf apache-ant.tgz apache-ant.docset > /dev/null
+
