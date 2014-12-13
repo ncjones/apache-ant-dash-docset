@@ -1,7 +1,7 @@
 Apache Ant Dash Docset Generator
 ================================
 
-This project builds a [Dash](1) or [Zeal](2) docset for the [Apache Ant](3)
+This project builds a [Dash][1] or [Zeal][2] docset for the [Apache Ant][3]
 user manual.
 
 
@@ -35,5 +35,5 @@ details. The Apache Ant manual is licensed under the Apache License version
 2.0.
 
 [1]: http://kapeli.com/dash
-[1]: http://zealdocs.org/
+[2]: http://zealdocs.org/
 [3]: https://ant.apache.org/
