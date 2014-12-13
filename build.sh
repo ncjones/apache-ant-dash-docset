@@ -17,10 +17,14 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 BASE_DIR=$(cd $(dirname $0) && pwd)
-RES_DIR=$BASE_DIR/apache-ant.docset/Contents/Resources
+DOCSET_DIR_NAME=apache-ant.docset
+DOCSET_DIR=$BASE_DIR/$DOCSET_DIR_NAME
+RES_DIR=$DOCSET_DIR/Contents/Resources
 DOCS_DIR=$RES_DIR/Documents
 IDX_FILE=$BASE_DIR/apache-ant.docset/Contents/Resources/docSet.dsidx 
+DOCSET_ZIP_FILE=$BASE_DIR/apache-ant.tgz
 rm -rf $RES_DIR
+rm -f $DOCSET_ZIP_FILE
 mkdir -p $DOCS_DIR
 cp -r $BASE_DIR/apache-ant/manual/* \
       $BASE_DIR/apache-ant.docset/Contents/Resources/Documents
@@ -60,5 +64,5 @@ insert_all () {
 insert_all $DOCS_DIR/Tasks Command
 insert_all $DOCS_DIR/Types Type
 
-tar -cvzf apache-ant.tgz apache-ant.docset > /dev/null
+cd $BASE_DIR && tar -cvzf $DOCSET_ZIP_FILE $DOCSET_DIR_NAME > /dev/null
 
