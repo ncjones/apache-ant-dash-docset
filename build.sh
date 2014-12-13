@@ -21,7 +21,7 @@ DOCSET_DIR_NAME=apache-ant.docset
 DOCSET_DIR=$BASE_DIR/$DOCSET_DIR_NAME
 RES_DIR=$DOCSET_DIR/Contents/Resources
 DOCS_DIR=$RES_DIR/Documents
-IDX_FILE=$BASE_DIR/apache-ant.docset/Contents/Resources/docSet.dsidx 
+IDX_FILE=$BASE_DIR/apache-ant.docset/Contents/Resources/docSet.dsidx
 DOCSET_ZIP_FILE=$BASE_DIR/apache-ant.tgz
 rm -rf $RES_DIR
 rm -f $DOCSET_ZIP_FILE
@@ -55,9 +55,9 @@ insert_all () {
   dir=$1
   idx_type=$2
   for file_name in `ls $dir`; do
-	  insert $(basename $file_name .html) \
-	         $idx_type \
-		 $(basename $dir)/$file_name
+      insert $(basename $file_name .html) \
+             $idx_type \
+             $(basename $dir)/$file_name
   done
 }
 
