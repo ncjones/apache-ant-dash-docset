@@ -16,6 +16,8 @@
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+set -e
+
 BASE_DIR=$(cd $(dirname $0) && pwd)
 DOCSET_DIR_NAME=apache-ant.docset
 DOCSET_DIR=$BASE_DIR/$DOCSET_DIR_NAME
@@ -23,10 +25,16 @@ RES_DIR=$DOCSET_DIR/Contents/Resources
 DOCS_DIR=$RES_DIR/Documents
 IDX_FILE=$BASE_DIR/apache-ant.docset/Contents/Resources/docSet.dsidx
 DOCSET_ZIP_FILE=$BASE_DIR/apache-ant.tgz
+ANT_DIR=$BASE_DIR/apache-ant
+ANT_DIST_DIR=$ANT_DIR/apache-ant-1.9.4/
+
+if [ ! -d $ANT_DIST_DIR ]; then
+    ant -f $ANT_DIR/build.xml dist
+fi
 rm -rf $RES_DIR
 rm -f $DOCSET_ZIP_FILE
 mkdir -p $DOCS_DIR
-cp -r $BASE_DIR/apache-ant/manual/* \
+cp -r $ANT_DIST_DIR/manual/* \
       $BASE_DIR/apache-ant.docset/Contents/Resources/Documents
 
 sqlite3 $IDX_FILE <<SQL

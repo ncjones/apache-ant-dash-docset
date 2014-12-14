@@ -8,11 +8,13 @@ user manual.
 Building
 --------
 
- 1. Get the Apache Ant source:
+ 1. Install required dependencies:
+   - Ant
+   - Sqlite3
+
+ 2. Get the Apache Ant source:
 
         $ git submodule init && git submodule update
-
- 2. Make sure sqlite3 is installed
 
  3. Build the docset:
 
