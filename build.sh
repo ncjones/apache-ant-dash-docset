@@ -62,10 +62,14 @@ insert () {
 insert_all () {
   dir=$1
   idx_type=$2
+  idx_path_map=$(cat $BASE_DIR/$idx_type.properties)
   for file_name in `ls $dir`; do
-      insert $(basename $file_name .html) \
-             $idx_type \
-             $(basename $dir)/$file_name
+    idx_name=$(basename $file_name .html)
+    idx_path=$(echo "$idx_path_map" | grep "^$idx_name=" | cut -d= -f2)
+    if [ -z $idx_path ]; then
+      idx_path=$(basename $dir)/$file_name
+    fi
+    insert $idx_name $idx_type $idx_path
   done
 }
 
